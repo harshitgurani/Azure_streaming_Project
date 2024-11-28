@@ -39,7 +39,7 @@ services:
     networks:
       - algo
     healthcheck:
-      test: [ "CMD", "bash", "-c", 'nc -z 43.205.25.254 9092']
+      test: [ "CMD", "bash", "-c", 'nc -z 43.205.25.254 2181']
       interval: 10s
       timeout: 5s
       retries: 5
