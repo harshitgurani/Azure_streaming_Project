@@ -36,13 +36,13 @@ services:
     depends_on:
       zookeeper:
         condition: service_healthy
+    networks:
+      - algo
     healthcheck:
-      test: ['CMD', 'bash', '-c', "echo 'ruok' | nc zookeeper 2181"]
+      test: [ "CMD", "bash", "-c", 'nc -z 43.205.25.254 9092']
       interval: 10s
       timeout: 5s
       retries: 5
-    networks:
-      - algo
 
   spark-master:
     image: bitnami/spark:latest
